@@ -31,24 +31,22 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 class ToolbarTapTarget extends ViewTapTarget {
-  ToolbarTapTarget(Toolbar toolbar, @IdRes int menuItemId,
-                   CharSequence title, @Nullable CharSequence description) {
-    super(toolbar.findViewById(menuItemId), title, description);
+  ToolbarTapTarget(Toolbar toolbar, @IdRes int menuItemId, CharSequence title, @Nullable CharSequence description, @Nullable CharSequence skipText) {
+    super(toolbar.findViewById(menuItemId), title, description, skipText);
   }
 
-  ToolbarTapTarget(android.widget.Toolbar toolbar, @IdRes int menuItemId,
-                   CharSequence title, @Nullable CharSequence description) {
-    super(toolbar.findViewById(menuItemId), title, description);
+  ToolbarTapTarget(android.widget.Toolbar toolbar, @IdRes int menuItemId, CharSequence title, @Nullable CharSequence description,
+                   @Nullable CharSequence skipText) {
+    super(toolbar.findViewById(menuItemId), title, description, skipText);
   }
 
-  ToolbarTapTarget(Toolbar toolbar, boolean findNavView,
-                   CharSequence title, @Nullable CharSequence description) {
-    super(findNavView ? findNavView(toolbar) : findOverflowView(toolbar), title, description);
+  ToolbarTapTarget(Toolbar toolbar, boolean findNavView, CharSequence title, @Nullable CharSequence description, @Nullable CharSequence skipText) {
+    super(findNavView ? findNavView(toolbar) : findOverflowView(toolbar), title, description, skipText);
   }
 
-  ToolbarTapTarget(android.widget.Toolbar toolbar, boolean findNavView,
-                   CharSequence title, @Nullable CharSequence description) {
-    super(findNavView ? findNavView(toolbar) : findOverflowView(toolbar), title, description);
+  ToolbarTapTarget(android.widget.Toolbar toolbar, boolean findNavView, CharSequence title, @Nullable CharSequence description,
+                   @Nullable CharSequence skipText) {
+    super(findNavView ? findNavView(toolbar) : findOverflowView(toolbar), title, description, skipText);
   }
 
   private static ToolbarProxy proxyOf(Object instance) {
